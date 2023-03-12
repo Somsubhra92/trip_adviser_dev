@@ -23,6 +23,9 @@ class _PrimaryHighlightItemsState extends State<PrimaryHighlightItems> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        SizedBox(
+          height: 10,
+        ),
         CircleAvatar(
           child: CircleAvatar(
             backgroundImage: AssetImage(this.assetUrl),
