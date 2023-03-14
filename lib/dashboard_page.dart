@@ -12,24 +12,102 @@ class DashboardPage extends StatefulWidget {
 class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return DefaultTabController(
+      length: 3,
       child: Scaffold(
-        appBar: AppBar(
-          leading: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Image.asset("images/app_logo.png"),
-          ),
+        bottomSheet: Stack(
+          children: [
+            Image.asset("images/nav_background.png", height: 80, fit: BoxFit.fill,),
+            Container(
+              child: TabBar(
+                tabs: [
+                  BottomNavButton(
+                    icName: Icon(Icons.home),
+                    title: "Home",
+                  ),
+                  BottomNavButton(
+                    icName: Icon(Icons.airplane_ticket),
+                    title: "My Trips",
+                  ),
+                  BottomNavButton(
+                    icName: Icon(Icons.person),
+                    title: "User",
+                  )
+                ],
+              ),
+              height: 80,
+            ),
+          ],
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              PrimaryHighlightSection(),
-              RecommendedSection()
-            ],
-          ),
+        body: TabBarView(
+          children: [
+            HomePage(),
+            Icon(Icons.trip_origin),
+            Icon(Icons.ice_skating)
+          ],
         ),
       ),
+    );
+    // return Container(
+    //   child: Scaffold(
+    //     body: Column(
+    //       children: [
+    //         PrimaryHighlightSection(),
+    //         RecommendedSection()
+    //       ],
+    //     ),
+    //   ),
+    // );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        PrimaryHighlightSection(),
+        RecommendedSection(),
+      ],
+    );
+  }
+}
+
+class BottomNavButton extends StatefulWidget {
+  const BottomNavButton({Key? key, required this.icName, required this.title})
+      : super(key: key);
+
+  final Icon icName;
+  final String title;
+
+  @override
+  State<BottomNavButton> createState() =>
+      _BottomNavButtonState(icName: this.icName, title: this.title);
+}
+
+class _BottomNavButtonState extends State<BottomNavButton> {
+  _BottomNavButtonState({required this.icName, required this.title});
+
+  Icon icName;
+  String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [
+          this.icName,
+          Text(this.title),
+        ],
+      ),
+      margin: EdgeInsets.only(top: 10),
     );
   }
 }

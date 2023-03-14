@@ -32,7 +32,7 @@ class _PrimaryHighlightItemsState extends State<PrimaryHighlightItems> {
             radius: 32,
           ),
           radius: 35,
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.white,
         ),
         SizedBox(
           height: 10,
