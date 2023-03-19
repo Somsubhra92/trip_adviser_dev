@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trip_adviser/custom_classes/recommended_section.dart';
+import 'package:trip_adviser/custom_classes/stories_section.dart';
 import 'custom_classes/primary_highlight_section.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -17,7 +18,7 @@ class _DashboardPageState extends State<DashboardPage> {
       child: Scaffold(
         bottomSheet: Stack(
           children: [
-            Image.asset("images/nav_background.png", height: 80, fit: BoxFit.fill,),
+            // Image.asset("images/nav_background.png", height: 80, fit: BoxFit.fill,),
             Container(
               child: TabBar(
                 tabs: [
@@ -36,6 +37,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 ],
               ),
               height: 80,
+              color: Colors.black,
             ),
           ],
         ),
@@ -52,8 +54,9 @@ class _DashboardPageState extends State<DashboardPage> {
     //   child: Scaffold(
     //     body: Column(
     //       children: [
-    //         PrimaryHighlightSection(),
-    //         RecommendedSection()
+    //         Expanded(child: PrimaryHighlightSection(),flex: 15,),
+    //         Expanded(child: RecommendedSection(),flex: 9,),
+    //         Expanded(child: StoriesSection(),flex:20,)
     //       ],
     //     ),
     //   ),
@@ -72,9 +75,22 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         PrimaryHighlightSection(),
         RecommendedSection(),
+        Container(
+          color: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "Stories by Travellers",
+              style: TextStyle(fontFamily: "Oswald", fontSize: 20, fontWeight: FontWeight.w600, color: Colors.blueAccent),
+              textAlign: TextAlign.left,
+            ),
+          ),
+        ),
+        Flexible(child: StoriesSection()),
       ],
     );
   }

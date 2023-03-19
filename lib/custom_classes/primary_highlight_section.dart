@@ -16,7 +16,11 @@ class _PrimaryHighlightSectionState extends State<PrimaryHighlightSection> {
     return Container(
       child: Stack(
         children: [
-          Image.asset("images/background_img.jpeg"),
+          Row(
+            children: [
+              Expanded(child: Image.asset("images/background_img.jpeg", fit: BoxFit.fill)),
+            ],
+          ),
           Container(
             margin: EdgeInsets.only(top: 80),
             child: Row(
@@ -38,7 +42,7 @@ class _PrimaryHighlightSectionState extends State<PrimaryHighlightSection> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 200.0),
+            padding: const EdgeInsets.only(top: 180.0),
             child: Container(
               child: Card(
                 child: SizedBox(
@@ -51,7 +55,7 @@ class _PrimaryHighlightSectionState extends State<PrimaryHighlightSection> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 200.0),
+            padding: const EdgeInsets.only(top: 180.0),
             child: Row(
               children: [
                 Expanded(
@@ -77,6 +81,7 @@ class _PrimaryHighlightSectionState extends State<PrimaryHighlightSection> {
           ),
         ],
       ),
+      color: Colors.green,
     );
   }
 }
