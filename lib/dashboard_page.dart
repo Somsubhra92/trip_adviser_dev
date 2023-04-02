@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:trip_adviser/custom_classes/recommended_section.dart';
 import 'package:trip_adviser/custom_classes/stories_section.dart';
 import 'custom_classes/primary_highlight_section.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);
@@ -13,6 +16,7 @@ class DashboardPage extends StatefulWidget {
 class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
+
     return DefaultTabController(
       length: 3,
       child: Scaffold(
@@ -62,6 +66,9 @@ class _DashboardPageState extends State<DashboardPage> {
     //   ),
     // );
   }
+
+
+
 }
 
 class HomePage extends StatefulWidget {

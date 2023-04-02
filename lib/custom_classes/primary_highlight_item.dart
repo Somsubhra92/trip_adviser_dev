@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trip_adviser/package_search_page.dart';
 
 class PrimaryHighlightItems extends StatefulWidget {
   const PrimaryHighlightItems(
@@ -21,31 +22,36 @@ class _PrimaryHighlightItemsState extends State<PrimaryHighlightItems> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: 10,
-        ),
-        CircleAvatar(
-          child: CircleAvatar(
-            backgroundImage: AssetImage(this.assetUrl),
-            radius: 32,
+    return TextButton(
+      onPressed: () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => PackageSearchPage()));
+      },
+      child: Column(
+        children: [
+          SizedBox(
+            height: 10,
           ),
-          radius: 35,
-          backgroundColor: Colors.white,
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          this.title,
-          maxLines: 2,
-          style: TextStyle(fontWeight: FontWeight.w500),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-      ],
+          CircleAvatar(
+            child: CircleAvatar(
+              backgroundImage: AssetImage(this.assetUrl),
+              radius: 32,
+            ),
+            radius: 35,
+            backgroundColor: Colors.white,
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            this.title,
+            maxLines: 2,
+            style: TextStyle(fontWeight: FontWeight.w500),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+        ],
+      ),
     );
   }
 }

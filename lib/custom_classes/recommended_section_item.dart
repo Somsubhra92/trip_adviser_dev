@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
 
 class RecommandedSectionItem extends StatefulWidget {
-  const RecommandedSectionItem({Key? key, required this.assetName, required this.highlightName})
+  const RecommandedSectionItem(
+      {Key? key, required this.assetName, required this.highlightName})
       : super(key: key);
 
   final String assetName;
   final String highlightName;
 
   @override
-  State<RecommandedSectionItem> createState() =>
-      _RecommandedSectionItemState(assetName: this.assetName,highlightName: this.highlightName);
+  State<RecommandedSectionItem> createState() => _RecommandedSectionItemState(
+      assetName: this.assetName, highlightName: this.highlightName);
 }
 
 class _RecommandedSectionItemState extends State<RecommandedSectionItem> {
   String assetName;
   String highlightName;
 
-  _RecommandedSectionItemState({required this.assetName, required this.highlightName});
+  _RecommandedSectionItemState(
+      {required this.assetName, required this.highlightName});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
+    return TextButton(
+      onPressed: () {Navigator.pushNamed(context, "/destionation_package_details",);},
       child: Stack(
         children: [
           Container(
