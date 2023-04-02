@@ -18,9 +18,11 @@ class _LoginPageState extends State<LoginPage> {
   String email = '';
   String password = '';
 
-  signInWithProfile() {
-    final user = ServiceClass.signInWithProfile(email, password);
+  signInWithProfile()
+  async {
+    final user = await ServiceClass.signInWithProfile(email, password);
     if (user != null) {
+      print(user);
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => DashboardPage()));
     }

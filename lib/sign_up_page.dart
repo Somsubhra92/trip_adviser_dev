@@ -18,9 +18,9 @@ class _SignUpPageState extends State<SignUpPage> {
   String password = '';
 
   createProfile()
-  {
-    final credential = ServiceClass.createProfile(email, password);
-
+  async {
+    final credential = await ServiceClass.createProfile(email, password);
+    print(credential);
     if(credential != null)
     {
       Navigator.push(context, MaterialPageRoute(builder: (context) => DashboardPage()));
@@ -241,7 +241,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
 
                         ElevatedButton(
-                          onPressed: (){},
+                          onPressed: (){createProfile();},
                           child: Text("SignUp"),
                           style: ElevatedButton.styleFrom(
                             // primary: Color.fromARGB(255, 165, 84, 8),

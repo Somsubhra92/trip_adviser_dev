@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:trip_adviser/package_search_page.dart';
 
+import '../service_firebase.dart';
+
 class PrimaryHighlightItems extends StatefulWidget {
   const PrimaryHighlightItems(
       {Key? key, required this.assetUrl, required this.title})
@@ -24,6 +26,8 @@ class _PrimaryHighlightItemsState extends State<PrimaryHighlightItems> {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
+        print("createDashboardTree");
+        ServiceClass.createDashboardTree();
         Navigator.of(context).push(MaterialPageRoute(builder: (context) => PackageSearchPage()));
       },
       child: Column(

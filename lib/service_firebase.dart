@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
@@ -51,15 +53,10 @@ class ServiceClass
 
   static createDashboardTree()
   async {
-    DatabaseReference ref = FirebaseDatabase.instance.ref("dashboard/static");
-
-    await ref.set({
-      "primary_sec":[
-        {"item_name": "Holiday Packages"},
-        {"item_name": "Hotels"},
-        {"item_name": "Cabs"},
-      ]
-
+    FirebaseFirestore.instance.collection('users').add({
+      'email':'abc@gmail.com',
+      'name':'hasvdhv',
+      'phone':'5678892'
     });
   }
 
