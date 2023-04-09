@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 class ServiceClass
 {
 
+  static FirebaseFirestore db = FirebaseFirestore.instance;
+
   static signInWithProfile(String email, String password)
   async {
 
@@ -58,6 +60,23 @@ class ServiceClass
       'name':'hasvdhv',
       'phone':'5678892'
     });
+  }
+
+  static getPackageDetails()
+  async {
+
+    final docRef = db.collection("tour_details").doc("ayR5bV8c300yuGf7To7T");
+
+    const source = Source.server;
+
+    docRef.get(const GetOptions(source: source)).then(
+          (res) {
+            print("Successfully completed") ;
+            print(res.data());
+
+        },
+      onError: (e) => print("Error completing: $e"),
+    );
   }
 
 }

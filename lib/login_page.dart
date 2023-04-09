@@ -20,6 +20,9 @@ class _LoginPageState extends State<LoginPage> {
 
   signInWithProfile()
   async {
+
+    // final res = await ServiceClass.getPackageDetails();
+    // print(res);
     final user = await ServiceClass.signInWithProfile(email, password);
     if (user != null) {
       print(user);
