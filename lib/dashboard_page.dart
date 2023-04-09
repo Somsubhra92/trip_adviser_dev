@@ -15,6 +15,16 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
+
+  void didChangeDependencies()
+  {
+    precacheImage(Image.asset("images/background_img.jpeg").image, context);
+    precacheImage(Image.asset("images/kolkata.jpeg").image, context);
+    precacheImage(Image.asset("images/puri.jpeg").image, context);
+    precacheImage(Image.asset("images/darjeeling.jpg").image, context);
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -87,7 +97,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    getCurrentUser();
+    // getCurrentUser();
   }
 
   void getCurrentUser()

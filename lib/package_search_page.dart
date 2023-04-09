@@ -190,21 +190,23 @@ class _HolidayThemeSectionState extends State<HolidayThemeSection> {
   Widget build(BuildContext context) {
     return Flexible(
       child: Card(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text("Holidays by theme", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
-            SizedBox(height: 10,),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  HolidayThemeItem(),
-                  HolidayThemeItem()
-                ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text("Holidays by theme", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
+              SizedBox(height: 10,),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    HolidayThemeItem(),
+                    HolidayThemeItem()
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -24,8 +24,8 @@ class _PrimaryHighlightItemsState extends State<PrimaryHighlightItems> {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () {
+    return GestureDetector(
+      onTap: () {
         print("createDashboardTree");
         ServiceClass.createDashboardTree();
         Navigator.of(context).push(MaterialPageRoute(builder: (context) => PackageSearchPage()));
@@ -37,7 +37,7 @@ class _PrimaryHighlightItemsState extends State<PrimaryHighlightItems> {
           ),
           CircleAvatar(
             child: CircleAvatar(
-              backgroundImage: AssetImage(this.assetUrl),
+              backgroundImage: Image.asset(this.assetUrl, gaplessPlayback: true,).image,
               radius: 32,
             ),
             radius: 35,
